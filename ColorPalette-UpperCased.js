@@ -218,8 +218,8 @@ function demoMode(mode) {
     if ( mode == "fw" ) {
         for ( var i = 0; i < valid_weights.length; i++ ) {
             cb.chatNotice( "fg color = " + fg_color + ", bg color = " + bg_color +
-                ", font weight = " + valid_weights[i], "", bg_color, fg_color,
-                valid_weights[i] );
+                ", font weight = " + valid_weights[i], "", colorPalette[bg_color],
+                colorPalette[fg_color], valid_weights[i] );
         }
 
     } else {
@@ -227,13 +227,13 @@ function demoMode(mode) {
             if ( colorPalette.hasOwnProperty( col ) ) {
                 if ( mode == "fg" ) {
                     cb.chatNotice( "fg color = " + col + ", bg color = " + bg_color +
-                        ", font weight = " + font_weight, "", bg_color, colorPalette[col],
-                        font_weight );
+                        ", font weight = " + font_weight, "", colorPalette[bg_color],
+                        colorPalette[col], font_weight );
                 } else {
                     if ( mode == "bg" ) {
                         cb.chatNotice( "fg color = " + fg_color + ", bg color = " + col +
-                            ", font weight = " + font_weight, "", colorPalette[col], fg_color,
-                            font_weight );
+                            ", font weight = " + font_weight, "", colorPalette[col],
+                            colorPalette[fg_color], font_weight );
                     }
                 }
 
@@ -244,10 +244,3 @@ function demoMode(mode) {
 
 }
 
-Object.size = function (obj) {
-    var size = 0, key;
-    for ( key in obj ) {
-        if ( obj.hasOwnProperty( key ) ) size++;
-    }
-    return size;
-};
